@@ -50,3 +50,22 @@ stage.addChild(ninepatch);
 
 ninepatch.body.addChild(sprite);
 ```
+
+
+#### Restoring the DisplayObjectContainer scale behaviour ####
+
+```javascript
+
+var ninepatch = new PIXI.NinePatch(100, 30, "img/yellow_button_0*.png", false, PIXI.NinePatch.scaleModes.DEFAULT);
+stage.addChild(ninepatch);
+```
+
+or
+
+```javascript
+
+var ninepatch = new PIXI.NinePatch(100, 30, "img/yellow_button_0*.png", false);
+stage.addChild(ninepatch);
+
+ninepatch.scaleMode = PIXI.NinePatch.scaleModes.DEFAULT;
+```
