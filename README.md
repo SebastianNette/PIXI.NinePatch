@@ -3,7 +3,7 @@ PIXI.NinePatch
 
 Rendering 9Patch containers on a PIXI stage.
 
-Demo: http://mokgames.com/playground/ninepatch/
+Demo: http://mokgames.com/playground/pixi/ninepatch/
 
 #### How to use ####
 Simply load the pixi.ninepatch.js file after your pixi.js file.
