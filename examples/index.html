@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>PIXI NinePatch</title>
+
+    <style>
+    @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+    @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
+    * { margin:0; padding:0; }
+    html,body { overflow:hidden; }
+    body { background: #000; text-align:center; }
+    canvas {
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+        margin:0 auto;
+    }
+    </style>
+</head>
+<body unselectable="on" style="-moz-user-select: none; -webkit-user-select: none; user-select: none">
+
+    <script src="pixi.js"></script>
+    <script src="pixi.ninepatch.js"></script>
+
+    <script>
+
+    var stage = new PIXI.Stage( 0xffffff );
+    var renderer = PIXI.autoDetectRenderer( 400, 400 );
+    document.body.appendChild(renderer.view);
+
+    var ninepatch = new PIXI.NinePatch(100, 30, "img/yellow_button_0*.png", false);
+                    
+        ninepatch.x = 10;
+        ninepatch.y = 10;
+
+    stage.addChild(ninepatch);
+
+    stage.click = stage.tap = function() 
+    {
+        ninepatch.update(
+            30 + Math.ceil(Math.random() * 350),
+            30 + Math.ceil(Math.random() * 350)
+        );
+    };
+
+
+    function animate()
+    {
+        requestAnimationFrame(animate);
+        renderer.render(stage);
+    };
+
+    animate();
+    
+    </script>
+
+</body>
+</html>
